@@ -63,6 +63,7 @@ public class ArcadeRetroApplication {
 			}else {
 				System.out.println("Hai inserito un numero sbagliato, Errore reinserisci: ");
 			}
+			
 		};
 		
 		scanner.close();
