@@ -1,5 +1,5 @@
 import java.util.Scanner;
-import services.GameServices;
+import services.GameService;
 
 public class ArcadeRetroApplication {
 
@@ -7,14 +7,14 @@ public class ArcadeRetroApplication {
 		Scanner scanner = new Scanner(System.in);
 		boolean isRunning = true;
 		
-		GameServices gameServices = new GameServices();
+		GameService gameService = new GameService();
 
 		while (isRunning) {
 			System.out.println("ARCADE RETRO");
 			System.out.println("1) Aggiungi gioco arcade");
 			System.out.println("2) Visualizza lista giochi");
 			System.out.println("3) Cerca gioco");
-			System.out.println("4) Giochi più difficili di livello 4");
+			System.out.println("4) Livello giochi");
 			System.out.println("5) Esci");
 			System.out.println("Seleziona: ");
 			
@@ -36,19 +36,26 @@ public class ArcadeRetroApplication {
 				}
 				while(difficulty < 1 || difficulty > 5);
 				
-				gameServices.insertGame(name, realeseYear, difficulty);
+				gameService.insertGame(name, realeseYear, difficulty);
 				
 			} else if(choose.equals("2")) {
 				System.out.println("La lista dei giochi è: ");
-				gameServices.printGameList();
+				gameService.printGameList();
 				
 			} else if(choose.equals("3")) {
 				System.out.println("Quale gioco vuoi cercare: ");
 				String name = scanner.nextLine();
-				gameServices.searchGame(name);
+				gameService.searchGame(name);
 				
 			} else if(choose.equals("4")) {
-				gameServices.gameDifficulty();
+				int levelDifficulty;
+				do {
+				System.out.println("Che livello di difficoltà vuoi vedere: ");
+				levelDifficulty = scanner.nextInt();
+				scanner.nextLine();
+				}
+				while(levelDifficulty < 0 || levelDifficulty > 5);
+				gameService.gameDifficulty(levelDifficulty);
 				
 			} else if(choose.equals("5")){
 				System.out.println("Programma finito");
