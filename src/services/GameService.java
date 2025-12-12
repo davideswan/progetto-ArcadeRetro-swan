@@ -3,7 +3,7 @@ package services;
 import java.util.ArrayList;
 import models.Game;
 
-public class GameServices {
+public class GameService {
 	private ArrayList<Game> games = new ArrayList<Game>();
 	
 	Game game;
@@ -36,10 +36,10 @@ public class GameServices {
 		System.out.println();
 	}
 	
-	public void gameDifficulty() {
+	public void gameDifficulty(int levelDifficulty) {
 		System.out.println("Giochi con difficoltà maggiore uguale a 4");
 		for(int i = 0; i < games.size(); i++) {
-			if(games.get(i).getDifficulty() >= 4) {
+			if(games.get(i).getDifficulty() >= levelDifficulty) {
 				System.out.println((i+1) + " " +  games.get(i));
 			}
 		}
