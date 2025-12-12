@@ -40,7 +40,4 @@ public class Game {
 	public String toString() {
 		return name + " " + releaseYear + " " + difficulty;
 	}
-	
-	
-	
 }
