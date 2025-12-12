@@ -38,6 +38,6 @@ public class Game {
 
 	@Override
 	public String toString() {
-		return name + " Anno di uscita: " + releaseYear + " Difficoltà: " + difficulty;
+		return "Nome " + name + ", Anno di uscita: " + releaseYear + ", Difficoltà: " + difficulty;
 	}
 }
